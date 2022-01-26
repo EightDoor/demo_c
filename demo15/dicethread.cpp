@@ -5,15 +5,7 @@
 DiceThread::DiceThread(QObject *parent)
     : QThread{parent}
 {
-  m_stop = false;
-  m_seq = 0;
-  while(!m_stop) {
-      if(!m_Paused) {
-          m_diceValue = QRandomGenerator::global()->bounded(10);
-          m_seq ++;
-          emit newValued(m_seq, m_diceValue);
-      }
-  }
+
 }
 
 void DiceThread::diceBegin()
@@ -33,5 +25,15 @@ void DiceThread::stopThread()
 
 void DiceThread::run()
 {
-
+    m_stop = false;
+    m_seq = 0;
+    while(!m_stop) {
+        if(!m_Paused) {
+            m_diceValue = QRandomGenerator::global()->bounded(6);
+            m_seq ++;
+            emit newValued(m_seq, m_diceValue);
+        }
+        msleep(500);
+    }
+    quit();
 }

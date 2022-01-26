@@ -1,6 +1,7 @@
 #ifndef DICETHREAD_H
 #define DICETHREAD_H
 #include <QThread>
+#include <QMutex>
 
 class DiceThread : public QThread
 {
@@ -10,6 +11,7 @@ public:
     void diceBegin();
     void dicePause();
     void stopThread();
+    bool readValue(int *req, int *diceValue);
 protected:
     void run() Q_DECL_OVERRIDE;
 private:
@@ -17,9 +19,7 @@ private:
     int m_diceValue;
     bool m_stop = false;
     bool m_Paused = true;
-signals:
-    void newValued(int seq, int diceValue);
-
+    QMutex mutex;
 public slots:
 
 };

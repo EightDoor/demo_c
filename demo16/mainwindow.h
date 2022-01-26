@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "dicethread.h"
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,7 @@ protected:
 
 private:
     DiceThread threadA;
+    QTimer mTimer; // 定时器
 private slots:
     void on_threadAnew(int seq, int diceValue);
     void on_threadAStarted();
@@ -32,5 +34,6 @@ private slots:
     void on_start_clicked();
     void on_pause_clicked();
     void on_clearText_clicked();
+    void onTimerOut();
 };
 #endif // MAINWINDOW_H
