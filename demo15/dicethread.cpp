@@ -1,15 +1,15 @@
 #include "dicethread.h"
 #include <QTime>
+#include <QRandomGenerator>
 
 DiceThread::DiceThread(QObject *parent)
     : QThread{parent}
 {
   m_stop = false;
   m_seq = 0;
-  qsrand(QTime::currentTime().second());
   while(!m_stop) {
       if(!m_Paused) {
-          m_diceValue = qsrand() % 6 + 1;
+          m_diceValue = QRandomGenerator::global()->bounded(10);
           m_seq ++;
           emit newValued(m_seq, m_diceValue);
       }
@@ -29,4 +29,9 @@ void DiceThread::dicePause()
 void DiceThread::stopThread()
 {
     m_stop = true;
+}
+
+void DiceThread::run()
+{
+
 }

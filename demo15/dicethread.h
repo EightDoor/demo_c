@@ -20,6 +20,10 @@ private:
     bool m_Paused = true;
 signals:
     void newValued(int seq, int diceValue);
+
+public slots:
+
 };
+
 
 #endif // DICETHREAD_H

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -27,35 +27,35 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="startThread">
          <property name="text">
           <string>启动线程</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="start">
          <property name="text">
           <string>开始</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="pause">
          <property name="text">
           <string>暂停</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="stopThread">
          <property name="text">
           <string>结束线程</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="clearText">
          <property name="text">
           <string>清空文本</string>
          </property>
@@ -82,7 +82,7 @@
      <x>0</x>
      <y>0</y>
      <width>613</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

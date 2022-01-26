@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dicethread.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +18,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private:
+    DiceThread threadA;
+private slots:
+    void on_threadAnew(int seq, int diceValue);
+    void on_threadAStarted();
+    void on_threadAFinished();
 };
 #endif // MAINWINDOW_H
